@@ -73,6 +73,6 @@ for i, step in enumerate(final_plan, 1):
 ---
 
 ### Step 4: Verification & Reflection.
-Place Your answer in md file. Make sure to take screenshots of your output and save in screenshot folder.
+Place all your codes inside activity2 folder inclduing your answer to the following questions (`reflection.md` file). Make sure to take screenshots of your output and save in `activity2/screenshot` folder.
 1. Did the agent stay focused on the goal throughout the loop?
 2. **Challenge:** Modify the loop to perform 5 steps instead of 3. How does this affect the detail of the plan?
