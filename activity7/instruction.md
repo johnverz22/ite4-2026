@@ -1,5 +1,7 @@
 # Activity 7: Qdrant Memory and Chunking Strategy
 
+## Guided Lab Manual & Implementation Guide
+
 ---
 
 ## Preliminary Step: Environment Setup (Windows + WSL + Docker)
@@ -22,7 +24,38 @@ wsl --set-default-version 2
 
 ```
 
-### 2. Spin Up Qdrant
+
+
+### 2. Install Docker on Ubuntu
+
+1. Run the command:
+```bash
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+2. Install docker packages
+```bash
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+### 3. Spin Up Qdrant
 
 Open your terminal (Command Prompt, PowerShell, or WSL terminal) and execute the following command to download and start a local instance of Qdrant:
 
@@ -143,7 +176,7 @@ def paragraph_chunk(text: str) -> list[str]:
 
 ---
 
-## Step 3: The Embedding Generator
+## Step 4: The Embedding Generator
 
 To avoid complex API setups, we are using a **deterministic keyword sketch vector**. It checks for the frequency of 8 specific vocabulary words.
 
@@ -172,7 +205,7 @@ def embed_text(text: str) -> list[float]:
 
 ---
 
-## Step 4: Storing Points with Metadata in Qdrant
+## Step 5: Storing Points with Metadata in Qdrant
 
 When storing data in a vector database, we don't just store vectors; we attach a **payload** (metadata) that tracks its source origin and extraction history.
 
@@ -207,7 +240,7 @@ def store_chunks(client, collection_name: str, chunks: list[str], strategy: str)
 
 ---
 
-## Step 5: Querying Vector Spaces
+## Step 6: Querying Vector Spaces
 
 ```python
 def retrieve_best_match(client, collection_name: str, query_vector: list[float]):
@@ -225,7 +258,7 @@ def retrieve_best_match(client, collection_name: str, query_vector: list[float])
 
 ---
 
-## Step 6: Orchestration & Analysis
+## Step 7: Orchestration & Analysis
 
 Now construct your execution orchestrator. Copy this block to complete your script:
 
