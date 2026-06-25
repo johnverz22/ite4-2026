@@ -22,16 +22,7 @@ wsl --set-default-version 2
 
 ```
 
-
-
-### 2. Install Docker Desktop
-
-1. Download and install **Docker Desktop for Windows**.
-2. During installation, make sure the option **"Use the WSL 2 based engine"** is checked.
-3. Open Docker Desktop, go to **Settings (gear icon) > General**, and verify *Use the WSL 2 based engine* is enabled.
-4. Go to **Settings > Resources > WSL Integration**, and toggle on your default Linux distribution (e.g., Ubuntu).
-
-### 3. Spin Up Qdrant
+### 2. Spin Up Qdrant
 
 Open your terminal (Command Prompt, PowerShell, or WSL terminal) and execute the following command to download and start a local instance of Qdrant:
 
@@ -152,7 +143,7 @@ def paragraph_chunk(text: str) -> list[str]:
 
 ---
 
-## Step 4: The Embedding Generator
+## Step 3: The Embedding Generator
 
 To avoid complex API setups, we are using a **deterministic keyword sketch vector**. It checks for the frequency of 8 specific vocabulary words.
 
@@ -181,7 +172,7 @@ def embed_text(text: str) -> list[float]:
 
 ---
 
-## Step 5: Storing Points with Metadata in Qdrant
+## Step 4: Storing Points with Metadata in Qdrant
 
 When storing data in a vector database, we don't just store vectors; we attach a **payload** (metadata) that tracks its source origin and extraction history.
 
@@ -216,7 +207,7 @@ def store_chunks(client, collection_name: str, chunks: list[str], strategy: str)
 
 ---
 
-## Step 6: Querying Vector Spaces
+## Step 5: Querying Vector Spaces
 
 ```python
 def retrieve_best_match(client, collection_name: str, query_vector: list[float]):
@@ -234,7 +225,7 @@ def retrieve_best_match(client, collection_name: str, query_vector: list[float])
 
 ---
 
-## Step 7: Orchestration & Analysis
+## Step 6: Orchestration & Analysis
 
 Now construct your execution orchestrator. Copy this block to complete your script:
 
