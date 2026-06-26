@@ -1,4 +1,4 @@
-## Scenario 4: Video Transcript Semantic Indexing & Stateful RAG Chat Agent
+## Video Transcript Semantic Indexing & Stateful RAG Chat Agent
 
 ### Step 1: Core Setup and Client Initialization
 
