@@ -385,7 +385,7 @@ def run_with_evaluation(question: str) -> dict:
 ### File Structure
 
 ```
-week5/
+activity13/
 ├── project_react_loop.py        # ReAct loop + 3 tools + transcript logging
 ├── routing_test_suite.py        # 10-query test + accuracy report
 ├── evaluation_integration.py    # RAG Triad wrapper around the ReAct loop
