@@ -1,4 +1,4 @@
-# Week 5 Project Guideline: ReAct Loop & Tool Calling
+# Activity 13 Project Guideline: ReAct Loop & Tool Calling
 
 ## Integrating ReAct and Tool Selection into Your Chatbot
 
